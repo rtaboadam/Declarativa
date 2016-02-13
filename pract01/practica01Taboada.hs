@@ -77,7 +77,7 @@ makeTuplas [x,y] = [(x,y)]
 makeTuplas (x:xs) = [(x,last xs)] ++ makeTuplas (init xs)
 
 --4.Listas por comprensión
-ternaPitagoricas = [(a,b,c) | a <- [1..100], b <- [1..100], c <- [1..100], c**2 == a**2 + b**2]
+ternaPitagoricas = [(a,b,c) | a <- [1..1000], b <- [1..1000], c <- [1..100], c**2 == a**2 + b**2]
 --Pruebas
 --Las posibles combinaciones de dos valores booleanos
 valores = [(False,False),(False,True),(True,False),(True,True)]
