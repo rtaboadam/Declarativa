@@ -76,8 +76,27 @@ makeTuplas [x] = [(x,x)]
 makeTuplas [x,y] = [(x,y)]
 makeTuplas (x:xs) = [(x,last xs)] ++ makeTuplas (init xs)
 
+
 --4.Listas por comprensión
+--[0,1,3,7,15,31,...]
+fstlist::Integral a => [a]
+fstlist = [2^i - 1 | i <- [0..]]
+--[(3,4),(7,8),(11,12)..]
+sndlist = [(a-1,a) | a <- [4,8..]]
+--[58,65,72,...]
+trdlist = [a | a<-[58,65..]]
+--ternas pitagoricas
 ternaPitagoricas = [(a,b,c) | a <- [1..1000], b <- [1..1000], c <- [1..100], c**2 == a**2 + b**2]
+
+--Funciones de orden superior
+--Fibonacci
+fibo::Int -> [Int]
+fibo n = [fibo' x| x <-[0..n]] where
+        fibo' 0 = 1
+        fibo' 1 = 1
+        fibo' 2 = 1
+        fibo' n = fibo'(n-1) + fibo' (n-2)
+
 --Pruebas
 --Las posibles combinaciones de dos valores booleanos
 valores = [(False,False),(False,True),(True,False),(True,True)]
@@ -87,3 +106,4 @@ checaOp = checaOp' valores
 checaOp' :: [(Bool,Bool)] -> (Bool -> Bool -> Bool) -> [Bool]
 checaOp' [] _ = []
 checaOp' ((a,b):xs) f = (f a b):(checaOp' xs f)
+
