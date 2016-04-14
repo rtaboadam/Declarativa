@@ -32,7 +32,7 @@ let construct  l = let rec construct' list = match list  with
                      | (x::t) -> insert x (construct' t)
                    in
                    construct' l
-                              
+                             
 (*verify función que toma una lista de palabras y un diccionario y regresa una lista de las palabras que no pertenecen al diccionario. *)
 let rec verify l d = match l with
   | [] -> []
